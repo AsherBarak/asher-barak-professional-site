@@ -396,8 +396,20 @@
 
   window.addEventListener('resize', () => {
     resize();
-    waveFronts = [];
     buildNetwork();
+    // Reset wave state machine properly so colors are always defined
+    waveFronts = [];
+    waveState = 'forward';
+    waveTimer = 0;
+    waveFronts.push({
+      forward: true,
+      pos: -0.5,
+      speed: FORWARD_SPEED,
+      energy: 0.5,
+      width: 3.0,
+      color: [139, 92, 246],
+      colorBright: [200, 180, 255],
+    });
   });
 
   canvas.addEventListener('mousemove', (e) => {
