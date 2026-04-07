@@ -1,7 +1,7 @@
 title: Asher Barak | AI Consulting
 description: AI Strategy & Implementation for Growing Businesses
-url: "https://asherbarak.com"
-baseurl: ""
+url: "https://asherbarak.github.io"
+baseurl: "/asher-barak-professional-site"
 
 markdown: kramdown
 permalink: pretty
