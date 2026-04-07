@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asher Barak | AI Consulting</title>
+  <meta name="description" content="AI Strategy & Implementation for Growing Businesses">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <nav class="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">Asher Barak</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+  <!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <canvas id="neuralCanvas" class="neural-canvas"></canvas>
+  <div class="container">
+    <h1>Figure Out AI</h1>
+    <p class="hero-tagline">Strategy. Implementation. Business Impact.</p>
+    <p class="hero-subtitle">From boardroom to codebase — I help companies turn AI from buzzword into business value.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Book a Free Consultation</a>
+      <a href="mailto:asher.barak@gmail.com" class="btn btn-secondary">Get in Touch</a>
+    </div>
+    <div class="hero-credibility">
+      <span class="credibility-label">Previously at</span>
+      <div class="credibility-logos">
+        <div class="credibility-logo">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" opacity="0.7"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+          <span>Google</span>
+        </div>
+        <div class="credibility-logo">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" fill-rule="evenodd" opacity="0.7"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.929-.924-1.929-2.292 0-2.692 2.415-3.182 4.706-3.182v.685zm3.186 7.705c-.209.189-.512.201-.748.075-1.05-.872-1.238-1.276-1.814-2.106-1.735 1.769-2.962 2.3-5.209 2.3-2.66 0-4.731-1.641-4.731-4.923 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.095v-.41c0-.753.058-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.061-.333c-.259-.056-.548-.266-.472-.66C5.68 1.091 9.159 0 12.247 0c1.573 0 3.627.418 4.867 1.607 1.573 1.458 1.422 3.404 1.422 5.523v5.006c0 1.504.624 2.163 1.211 2.975.209.293.256.642-.007.859-.657.548-1.827 1.57-2.471 2.142l-.125-.317z"/><path d="M21.7 19.162C19.264 21.318 15.59 22.5 12.36 22.5c-4.588 0-8.72-1.695-11.84-4.516-.245-.222-.026-.525.268-.353 3.37 1.96 7.537 3.138 11.839 3.138 2.903 0 6.094-.602 9.032-1.848.443-.19.815.291.041.241z"/><path d="M22.853 17.783c-.334-.427-2.214-.202-3.059-.102-.257.031-.296-.192-.065-.354 1.498-1.053 3.959-.749 4.245-.396.287.356-.075 2.822-1.482 3.997-.216.181-.423.085-.327-.155.317-.791 1.03-2.563.688-2.99z"/></svg>
+          <span>Amazon</span>
+        </div>
+        <div class="credibility-logo">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" opacity="0.7"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg>
+          <span>Meta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem / Why Now -->
+<section class="section problem">
+  <div class="container">
+    <span class="section-label">Why Now</span>
+    <div class="problem-text">
+      <p>AI is transforming every industry — but most companies struggle to separate <strong>hype from real opportunity</strong>. Without the right guidance, AI initiatives stall, waste budget, or solve the wrong problems. You need a partner who understands both the technology and the business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section services" id="services">
+  <div class="container">
+    <span class="section-label">Services</span>
+    <h2 class="section-title">How I Can Help</h2>
+    <p class="section-subtitle">Whether you're exploring AI for the first time or scaling existing initiatives, I bring hands-on expertise to every engagement.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="4" rx="1"/><rect x="15" y="3" width="6" height="4" rx="1"/><rect x="9" y="17" width="6" height="4" rx="1"/><line x1="6" y1="7" x2="6" y2="10"/><line x1="18" y1="7" x2="18" y2="10"/><line x1="6" y1="10" x2="18" y2="10"/><line x1="12" y1="10" x2="12" y2="17"/></svg></div>
+        <h3>AI Strategy &amp; Roadmapping</h3>
+        <p>Identify where AI can drive real value in your business and build a practical path to get there.</p>
+        <ul>
+          <li>Identify high-impact AI opportunities</li>
+          <li>Technology assessment and vendor evaluation</li>
+          <li>Practical AI roadmap aligned with business goals</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14.5" y1="4" x2="9.5" y2="20"/></svg></div>
+        <h3>Hands-On Implementation</h3>
+        <p>Build AI-powered features and integrations — from proof-of-concept to production-ready systems.</p>
+        <ul>
+          <li>Ideation &rarr; Prototyping &rarr; Production</li>
+          <li>LLM integration and custom pipelines</li>
+          <li>AI-powered automation</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Team Enablement &amp; Training</h3>
+        <p>Upskill your team on AI tools and workflows with hands-on, practical workshops.</p>
+        <ul>
+          <li>AI-assisted development practices</li>
+          <li>Restructure teams for the AI world</li>
+          <li>Tailored to your tech stack</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>Fractional AI Leadership</h3>
+        <p>Embedded part-time AI/tech lead — guide your team through AI adoption without a full-time hire.</p>
+        <ul>
+          <li>Strategic AI leadership on demand</li>
+          <li>Bridge technical execution and business strategy</li>
+          <li>Build internal AI capabilities over time</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Who I Work With -->
+<section class="section clients" id="clients">
+  <div class="container">
+    <span class="section-label">Clients</span>
+    <h2 class="section-title">Who I Work With</h2>
+    <p class="section-subtitle">I partner with organizations at every stage of their AI journey.</p>
+    <div class="clients-grid">
+
+      <div class="client-card">
+        <h3>Startups &amp; Scaleups</h3>
+        <p>Product teams ready to integrate AI as a core capability and competitive advantage.</p>
+      </div>
+
+      <div class="client-card">
+        <h3>Enterprises</h3>
+        <p>Organizations with existing tech teams seeking specialized AI expertise and strategic guidance.</p>
+      </div>
+
+      <div class="client-card">
+        <h3>Traditional Businesses</h3>
+        <p>Companies in non-tech industries exploring AI for the first time — from retail to real estate.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">Built on Real-World AI Experience</h2>
+    <div class="about-content">
+      <p class="about-text">With over 20 years building and leading technology teams, I bring a rare combination of hands-on AI implementation experience and strategic business thinking. I've led engineering teams at the world's top technology companies and shipped AI products used by millions.</p>
+      <div class="about-highlights">
+        <div class="about-highlight">
+          <span class="highlight-dot"></span>
+          <span>Led reimagining Alexa Shopping with AI at Amazon</span>
+        </div>
+        <div class="about-highlight">
+          <span class="highlight-dot"></span>
+          <span>Drove AI adoption across engineering teams at Meta</span>
+        </div>
+        <div class="about-highlight">
+          <span class="highlight-dot"></span>
+          <span>Engineering leadership at Google, Amazon &amp; Meta</span>
+        </div>
+        <div class="about-highlight">
+          <span class="highlight-dot"></span>
+          <span>Former startup CTO — built products from zero to launch</span>
+        </div>
+        <div class="about-highlight">
+          <span class="highlight-dot"></span>
+          <span>Public speaker on AI strategy and implementation</span>
+        </div>
+        <div class="about-highlight">
+          <span class="highlight-dot"></span>
+          <span>Background spanning technology and business strategy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Speaking -->
+<section class="section speaking" id="speaking">
+  <div class="container">
+    <span class="section-label">Speaking</span>
+    <h2 class="section-title">Public Speaking</h2>
+    <p class="section-subtitle">Talks and presentations on AI strategy, implementation, and the future of technology.</p>
+    <div class="speaking-placeholder">
+      <p>Videos coming soon</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-content">
+      <span class="section-label">Get Started</span>
+      <h2 class="section-title">Let's Talk About Your AI Goals</h2>
+      <p class="section-subtitle">Book a free consultation to explore how AI can create value for your business.</p>
+      <div class="contact-cta">
+        <a href="#" class="btn btn-primary">Book a Free Consultation</a>
+        <a href="mailto:asher.barak@gmail.com" class="btn btn-secondary">Email Me</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/asherbarak" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/AsherBarak" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 Asher Barak. All rights reserved.</p>
+  </div>
+</footer>
+
+  <script src="/assets/js/neural-bg.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

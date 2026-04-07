@@ -1,0 +1,15 @@
+title: Asher Barak | AI Consulting
+description: AI Strategy & Implementation for Growing Businesses
+url: "https://asherbarak.com"
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - CONTENT_PLAN.md
+  - README.md
+  - node_modules
+  - vendor
