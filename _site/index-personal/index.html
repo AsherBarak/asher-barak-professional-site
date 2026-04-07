@@ -1,16 +1,44 @@
----
-layout: personal
-title: Asher Barak
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asher Barak</title>
+  <meta name="description" content="AI Strategy & Implementation for Growing Businesses">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/personal.css">
+</head>
+<body>
+  <nav class="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">Asher Barak</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
 
-<!-- Hero -->
+  <!-- Hero -->
 <section class="hero">
   <div class="hero-bg"></div>
   <canvas id="neuralCanvas" class="neural-canvas"></canvas>
   <div class="container">
     <div class="hero-personal">
       <div class="hero-photo">
-        <img src="{{ '/assets/img/asher.jpg' | relative_url }}" alt="Asher Barak" />
+        <img src="/assets/img/asher.jpg" alt="Asher Barak" />
       </div>
       <div class="hero-text">
         <h1>Hi, I'm Asher</h1>
@@ -125,6 +153,33 @@ title: Asher Barak
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <p>&copy; {{ 'now' | date: '%Y' }} Asher Barak</p>
+    <p>&copy; 2026 Asher Barak</p>
   </div>
 </footer>
+
+  <script>
+    // Override neural network colors for personal palette
+    window.neuralTheme = {
+      layerColors: [
+        [45, 194, 189],   // #2DC2BD teal
+        [48, 112, 62],    // #30703E green
+        [88, 129, 190],   // #5881BE blue
+        [186, 161, 159],  // #BAA19F rose
+        [88, 129, 190],   // #5881BE blue
+        [48, 112, 62],    // #30703E green
+        [45, 194, 189],   // #2DC2BD teal
+      ],
+      forwardWave: {
+        color: [45, 194, 189],
+        colorBright: [140, 230, 228],
+      },
+      returnWave: {
+        color: [88, 129, 190],
+        colorBright: [160, 185, 220],
+      },
+    };
+  </script>
+  <script src="/assets/js/neural-bg.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
