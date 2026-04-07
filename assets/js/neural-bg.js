@@ -15,7 +15,8 @@
   const TOTAL_LAYERS = LAYERS.length;
   const TOTAL_EDGES = TOTAL_LAYERS - 1; // 6 edge groups
 
-  const LAYER_COLORS = [
+  const theme = window.neuralTheme || {};
+  const LAYER_COLORS = theme.layerColors || [
     [99, 102, 241],
     [124, 58, 237],
     [139, 92, 246],
@@ -24,6 +25,10 @@
     [124, 58, 237],
     [99, 102, 241],
   ];
+  const FWD_COLOR = (theme.forwardWave && theme.forwardWave.color) || [139, 92, 246];
+  const FWD_BRIGHT = (theme.forwardWave && theme.forwardWave.colorBright) || [200, 180, 255];
+  const RET_COLOR = (theme.returnWave && theme.returnWave.color) || [59, 180, 200];
+  const RET_BRIGHT = (theme.returnWave && theme.returnWave.colorBright) || [140, 230, 240];
 
   function buildNetwork() {
     nodes = [];
@@ -140,8 +145,8 @@
       speed: FORWARD_SPEED,
       energy: 0.5,
       width: 3.0,
-      color: [139, 92, 246],     // purple
-      colorBright: [200, 180, 255],
+      color: FWD_COLOR,
+      colorBright: FWD_BRIGHT,
     });
   }
 
@@ -170,8 +175,8 @@
           speed: RETURN_SPEED,
           energy: 0.3,
           width: 2.2,
-          color: [59, 180, 200],      // teal/cyan
-          colorBright: [140, 230, 240],
+          color: RET_COLOR,
+          colorBright: RET_BRIGHT,
         });
         waveState = 'return';
       }
@@ -194,8 +199,8 @@
           speed: FORWARD_SPEED,
           energy: 0.5,
           width: 3.0,
-          color: [139, 92, 246],
-          colorBright: [200, 180, 255],
+          color: FWD_COLOR,
+          colorBright: FWD_BRIGHT,
         });
         waveState = 'forward';
       }
@@ -407,8 +412,8 @@
       speed: FORWARD_SPEED,
       energy: 0.5,
       width: 3.0,
-      color: [139, 92, 246],
-      colorBright: [200, 180, 255],
+      color: FWD_COLOR,
+      colorBright: FWD_BRIGHT,
     });
   });
 

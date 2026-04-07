@@ -1,0 +1,102 @@
+/* ============================================
+   Personal page palette override
+   Palette: #5881BE #BAA19F #4C3A30 #30703E #2DC2BD
+   ============================================ */
+
+:root {
+  --bg-primary: #1a1210;
+  --bg-secondary: #2a1f1a;
+  --bg-card: #3a2d25;
+  --bg-card-hover: #4C3A30;
+  --text-primary: #f0e8e4;
+  --text-secondary: #BAA19F;
+  --text-muted: #8a7a75;
+  --accent: #2DC2BD;
+  --accent-hover: #5881BE;
+  --accent-glow: rgba(45, 194, 189, 0.15);
+  --border: rgba(186, 161, 159, 0.1);
+}
+
+.nav {
+  background: rgba(26, 18, 16, 0.85);
+}
+
+.btn-primary {
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 32px rgba(45, 194, 189, 0.25);
+}
+
+.hero-bg {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 194, 189, 0.1), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(88, 129, 190, 0.06), transparent);
+}
+
+.service-card:hover {
+  border-color: rgba(45, 194, 189, 0.2);
+}
+
+.speaking-card:hover {
+  border-color: rgba(45, 194, 189, 0.2);
+}
+
+/* Inline company logos */
+.inline-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.inline-logo svg {
+  vertical-align: middle;
+  opacity: 0.85;
+}
+
+/* Hero with photo */
+.hero-personal {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero-photo {
+  flex-shrink: 0;
+}
+
+.hero-photo img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 3px solid rgba(45, 194, 189, 0.3);
+  box-shadow: 0 0 40px rgba(45, 194, 189, 0.1);
+}
+
+.hero-text {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    background: rgba(26, 18, 16, 0.98);
+  }
+
+  .hero-personal {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .hero-photo img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+}

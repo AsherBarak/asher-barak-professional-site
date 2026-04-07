@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/personal.css' | relative_url }}">
+</head>
+<body>
+  {% include nav.html %}
+  {{ content }}
+  <script>
+    // Override neural network colors for personal palette
+    window.neuralTheme = {
+      layerColors: [
+        [45, 194, 189],   // #2DC2BD teal
+        [48, 112, 62],    // #30703E green
+        [88, 129, 190],   // #5881BE blue
+        [186, 161, 159],  // #BAA19F rose
+        [88, 129, 190],   // #5881BE blue
+        [48, 112, 62],    // #30703E green
+        [45, 194, 189],   // #2DC2BD teal
+      ],
+      forwardWave: {
+        color: [45, 194, 189],
+        colorBright: [140, 230, 228],
+      },
+      returnWave: {
+        color: [88, 129, 190],
+        colorBright: [160, 185, 220],
+      },
+    };
+  </script>
+  <script src="{{ '/assets/js/neural-bg.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
