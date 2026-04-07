@@ -29,21 +29,33 @@
     nodes = [];
     connections = [];
 
+    const portrait = height > width * 1.2;
     const margin = 80;
     const usableWidth = width - margin * 2;
     const usableHeight = height - margin * 2;
-    const layerSpacing = usableWidth / (TOTAL_LAYERS - 1);
+    // In portrait mode, layers go top-to-bottom; in landscape, left-to-right
+    const layerSpacing = portrait
+      ? usableHeight / (TOTAL_LAYERS - 1)
+      : usableWidth / (TOTAL_LAYERS - 1);
 
     for (let l = 0; l < TOTAL_LAYERS; l++) {
       const count = LAYERS[l];
-      const x = margin + l * layerSpacing;
-      const nodeSpacing = usableHeight / (count + 1);
+      const nodeSpacing = portrait
+        ? usableWidth / (count + 1)
+        : usableHeight / (count + 1);
       const color = LAYER_COLORS[l];
 
       for (let n = 0; n < count; n++) {
-        const y = margin + (n + 1) * nodeSpacing;
-        const jitterX = (Math.random() - 0.5) * layerSpacing * 0.15;
-        const jitterY = (Math.random() - 0.5) * nodeSpacing * 0.2;
+        let x, y;
+        if (portrait) {
+          y = margin + l * layerSpacing;
+          x = margin + (n + 1) * nodeSpacing;
+        } else {
+          x = margin + l * layerSpacing;
+          y = margin + (n + 1) * nodeSpacing;
+        }
+        const jitterX = (Math.random() - 0.5) * (portrait ? nodeSpacing : layerSpacing) * 0.15;
+        const jitterY = (Math.random() - 0.5) * (portrait ? layerSpacing : nodeSpacing) * 0.2;
 
         nodes.push({
           x: x + jitterX,
@@ -51,12 +63,20 @@
           homeX: x + jitterX,
           homeY: y + jitterY,
           vx: 0, vy: 0,
-          radius: l === 0 || l === TOTAL_LAYERS - 1 ? 3 : 2.5 + Math.random() * 1.5,
+          radius: l === 0 || l === TOTAL_LAYERS - 1 ? 1.5 : 1.25 + Math.random() * 0.75,
           layer: l,
           color: [...color],
           baseColor: [...color],
           energy: 0,
           pulsePhase: Math.random() * Math.PI * 2,
+          // Idle animation: each node has unique speeds/phases for organic feel
+          idleSizePhase: Math.random() * Math.PI * 2,
+          idleSizeSpeed: 0.015 + Math.random() * 0.025,
+          idleBrightPhase: Math.random() * Math.PI * 2,
+          idleBrightSpeed: 0.008 + Math.random() * 0.015,
+          idleDriftPhaseX: Math.random() * Math.PI * 2,
+          idleDriftPhaseY: Math.random() * Math.PI * 2,
+          idleDriftSpeed: 0.0015 + Math.random() * 0.002,
         });
       }
     }
@@ -188,8 +208,8 @@
         const nodePos = node.layer;
         const dist = Math.abs(nodePos - wave.pos);
         if (dist < wave.width * 0.6) {
-          const strength = (1 - dist / (wave.width * 0.6)) * wave.energy * 0.08;
-          node.energy = Math.min(node.energy + strength, 0.8);
+          const strength = (1 - dist / (wave.width * 0.6)) * wave.energy * 0.35;
+          node.energy = Math.min(node.energy + strength, 1.0);
         }
       }
     }
@@ -206,18 +226,28 @@
         node.energy = Math.min(node.energy + 0.02, 0.8);
       }
 
-      node.vx += (node.homeX - node.x) * 0.01;
-      node.vy += (node.homeY - node.y) * 0.01;
-      node.vx *= 0.92;
-      node.vy *= 0.92;
+      // Advance idle animation phases
+      node.idleSizePhase += node.idleSizeSpeed;
+      node.idleBrightPhase += node.idleBrightSpeed;
+      node.idleDriftPhaseX += node.idleDriftSpeed;
+      node.idleDriftPhaseY += node.idleDriftSpeed * 0.8;
 
-      node.pulsePhase += 0.008;
-      node.vx += Math.sin(node.pulsePhase + node.layer) * 0.015;
-      node.vy += Math.cos(node.pulsePhase * 0.6 + node.layer * 0.5) * 0.015;
+      // Idle drift — target position wanders around home
+      const wanderX = node.homeX + Math.sin(node.idleDriftPhaseX) * 4;
+      const wanderY = node.homeY + Math.cos(node.idleDriftPhaseY) * 4;
+      node.vx += (wanderX - node.x) * 0.008;
+      node.vy += (wanderY - node.y) * 0.008;
+      node.vx *= 0.94;
+      node.vy *= 0.94;
 
       node.x += node.vx;
       node.y += node.vy;
+
+      // Wave energy decays
       node.energy *= 0.94;
+      // Idle brightness is independent — always pulses
+      // Range: 0.05 (nearly dark) to 0.7 (clearly glowing)
+      node.idleBright = (Math.sin(node.idleBrightPhase) * 0.5 + 0.5) * 0.65 + 0.05;
 
       for (let c = 0; c < 3; c++) {
         node.color[c] = node.baseColor[c] + (255 - node.baseColor[c]) * node.energy * 0.7;
@@ -314,17 +344,25 @@
 
     // Draw nodes
     for (const node of nodes) {
-      const alpha = 0.35 + node.energy * 0.65;
-      const r = Math.round(node.color[0]);
-      const g = Math.round(node.color[1]);
-      const b = Math.round(node.color[2]);
+      // Combine wave energy + idle brightness
+      const vis = Math.max(node.energy, node.idleBright);
+      const alpha = 0.15 + vis * 0.75;
+      const r = Math.round(node.baseColor[0] + (255 - node.baseColor[0]) * vis * 0.7);
+      const g = Math.round(node.baseColor[1] + (255 - node.baseColor[1]) * vis * 0.7);
+      const b = Math.round(node.baseColor[2] + (255 - node.baseColor[2]) * vis * 0.7);
 
-      if (node.energy > 0.05) {
-        const glowRadius = node.radius + node.energy * 16;
+      if (vis > 0.05) {
+        const glowRadius = node.radius + vis * 20;
+        // Blend toward white-pink when wave energy is high
+        const waveT = Math.min(1, node.energy * 1.5);
+        const glowR = Math.round(r + (255 - r) * waveT);
+        const glowG = Math.round(g + (220 - g) * waveT);
+        const glowB = Math.round(b + (245 - b) * waveT);
         const gradient = ctx.createRadialGradient(
           node.x, node.y, 0, node.x, node.y, glowRadius
         );
-        gradient.addColorStop(0, `rgba(${r},${g},${b},${node.energy * 0.35})`);
+        gradient.addColorStop(0, `rgba(${glowR},${glowG},${glowB},${vis * 0.45})`);
+        gradient.addColorStop(0.4, `rgba(${r},${g},${b},${vis * 0.15})`);
         gradient.addColorStop(1, `rgba(${r},${g},${b},0)`);
         ctx.beginPath();
         ctx.arc(node.x, node.y, glowRadius, 0, Math.PI * 2);
@@ -332,16 +370,18 @@
         ctx.fill();
       }
 
-      const drawRadius = node.radius + node.energy * 2;
+      const idleSize = Math.sin(node.idleSizePhase) * 0.5;
+      const waveSize = node.energy * node.radius; // doubles radius at full energy
+      const drawRadius = Math.max(1.5, node.radius + waveSize + idleSize);
       ctx.beginPath();
       ctx.arc(node.x, node.y, drawRadius, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
       ctx.fill();
 
-      if (node.energy > 0.15) {
+      if (vis > 0.15) {
         ctx.beginPath();
         ctx.arc(node.x, node.y, drawRadius + 3, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${r},${g},${b},${node.energy * 0.25})`;
+        ctx.strokeStyle = `rgba(${r},${g},${b},${vis * 0.2})`;
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }
