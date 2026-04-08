@@ -268,6 +268,28 @@ h3 {
   box-shadow: 0 0 32px rgba(139, 92, 246, 0.25);
 }
 
+/* Google Calendar scheduling button overrides */
+.contact-cta button {
+  padding: 14px 32px !important;
+  border-radius: 12px !important;
+  font-family: var(--font-family) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  background: var(--accent) !important;
+  color: #fff !important;
+  box-shadow: 0 0 24px var(--accent-glow) !important;
+  transition: all 0.2s !important;
+  border: none !important;
+  cursor: pointer !important;
+  line-height: 1.7 !important;
+}
+
+.contact-cta button:hover {
+  background: var(--accent-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 0 32px var(--accent-glow) !important;
+}
+
 .btn-secondary {
   background: var(--bg-card);
   color: var(--text-primary);

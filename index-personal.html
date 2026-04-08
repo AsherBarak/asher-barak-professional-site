@@ -111,7 +111,19 @@ title: Asher Barak
       <h2 class="section-title">Let's Connect</h2>
       <p class="section-subtitle">Whether you want to chat about AI, explore working together, or just say hi - I'd love to hear from you.</p>
       <div class="contact-cta">
-        <a href="#" class="btn btn-primary">Schedule a Meeting</a>
+        <script>
+        (function() {
+          var target = document.currentScript;
+          window.addEventListener('load', function() {
+            calendar.schedulingButton.load({
+              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0e6KVPEnZ9cMW9wJCtx0TjojY_-rJR4IGl23ztirg_a3fiQpIy6dClloXi_g4xWbHtKTPjrnm4?gv=true',
+              color: '#2DC2BD',
+              label: 'Schedule a Meeting',
+              target,
+            });
+          });
+        })();
+        </script>
         <a href="mailto:asher@asherbarak.com" class="btn btn-secondary">Email Me</a>
       </div>
       <div class="contact-links">
