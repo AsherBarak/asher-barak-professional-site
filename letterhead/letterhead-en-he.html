@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Asher Barak — Letterhead (EN + HE)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #2DC2BD;
+    --accent-deep: #25A5A0;
+    --ink: #2a1f1a;
+    --ink-soft: #6b5a52;
+    --rose: #BAA19F;
+    --blue: #5881BE;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4; margin: 0; }
+  html, body { width: 210mm; height: 297mm; }
+  body {
+    font-family: 'Plus Jakarta Sans', 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: #ffffff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .he { font-family: 'Heebo', 'Plus Jakarta Sans', sans-serif; direction: rtl; }
+
+  .page-header {
+    padding: 16mm 18mm 8mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  .brand .name {
+    font-size: 21pt;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .brand .name .dot { color: var(--accent); }
+  .brand .role {
+    margin-top: 1.5mm;
+    font-size: 9.5pt;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+  .brand-he { text-align: right; }
+  .brand-he .name { letter-spacing: 0; }
+
+  .neural {
+    width: 40mm;
+    height: 22mm;
+    opacity: 0.9;
+    flex-shrink: 0;
+  }
+
+  .rule {
+    margin: 0 18mm;
+    height: 0.7mm;
+    background: linear-gradient(90deg, var(--accent), rgba(45,194,189,0.25), var(--accent));
+    border-radius: 1mm;
+  }
+
+  .body-space { flex: 1; }
+
+  .page-footer {
+    padding: 6mm 18mm 12mm;
+  }
+  .footer-rule {
+    height: 0.35mm;
+    background: linear-gradient(90deg, rgba(45,194,189,0.45), rgba(45,194,189,0.12), rgba(45,194,189,0.45));
+    border-radius: 1mm;
+    margin-bottom: 4mm;
+  }
+  .contact {
+    display: flex;
+    justify-content: center;
+    gap: 6mm;
+    font-size: 9pt;
+    color: var(--ink-soft);
+  }
+  .contact a { color: var(--ink-soft); text-decoration: none; }
+  .contact .sep { color: var(--accent); }
+  .contact strong { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+<body>
+  <header class="page-header">
+    <div class="brand">
+      <div class="name">Asher Barak<span class="dot">.</span></div>
+      <div class="role">Engineering Leader &nbsp;·&nbsp; AI Practitioner</div>
+    </div>
+    <svg class="neural" viewBox="0 0 208 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#2DC2BD" stroke-opacity="0.35" stroke-width="1">
+        <line x1="24" y1="24" x2="88" y2="12"/><line x1="24" y1="24" x2="88" y2="48"/>
+        <line x1="24" y1="72" x2="88" y2="48"/><line x1="24" y1="72" x2="88" y2="84"/>
+        <line x1="88" y1="12" x2="152" y2="30"/><line x1="88" y1="48" x2="152" y2="30"/>
+        <line x1="88" y1="48" x2="152" y2="66"/><line x1="88" y1="84" x2="152" y2="66"/>
+        <line x1="152" y1="30" x2="196" y2="48"/><line x1="152" y1="66" x2="196" y2="48"/>
+      </g>
+      <g>
+        <circle cx="24" cy="24" r="4.5" fill="#2DC2BD"/>
+        <circle cx="24" cy="72" r="4.5" fill="#BAA19F"/>
+        <circle cx="88" cy="12" r="4.5" fill="#5881BE"/>
+        <circle cx="88" cy="48" r="4.5" fill="#2DC2BD"/>
+        <circle cx="88" cy="84" r="4.5" fill="#30703E"/>
+        <circle cx="152" cy="30" r="4.5" fill="#BAA19F"/>
+        <circle cx="152" cy="66" r="4.5" fill="#5881BE"/>
+        <circle cx="196" cy="48" r="5.5" fill="#2DC2BD"/>
+      </g>
+    </svg>
+    <div class="brand brand-he he">
+      <div class="name">אשר ברק<span class="dot">.</span></div>
+      <div class="role">מוביל טכנולוגיה &nbsp;·&nbsp; מומחה AI</div>
+    </div>
+  </header>
+  <div class="rule"></div>
+
+  <div class="body-space"></div>
+
+  <footer class="page-footer">
+    <div class="footer-rule"></div>
+    <div class="contact">
+      <span><strong>asherbarak.com</strong></span>
+      <span class="sep">·</span>
+      <span><a href="mailto:asher@asherbarak.com">asher@asherbarak.com</a></span>
+      <span class="sep">·</span>
+      <span><a href="https://www.linkedin.com/in/asherbarak">linkedin.com/in/asherbarak</a></span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -7,6 +7,7 @@ markdown: kramdown
 permalink: pretty
 
 exclude:
+  - letterhead
   - Gemfile
   - Gemfile.lock
   - CONTENT_PLAN.md
