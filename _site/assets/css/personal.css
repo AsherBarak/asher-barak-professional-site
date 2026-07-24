@@ -29,6 +29,14 @@
   box-shadow: 0 0 32px rgba(45, 194, 189, 0.25);
 }
 
+.hero-subtitle {
+  margin-bottom: 10px;
+}
+
+.hero-subtitle:last-of-type {
+  margin-bottom: 40px;
+}
+
 .hero-bg {
   background:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 194, 189, 0.1), transparent),
