@@ -33,6 +33,31 @@
   margin-bottom: 10px;
 }
 
+/* RTL (Hebrew) adjustments */
+[dir="rtl"] {
+  --font-family: 'Heebo', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[dir="rtl"] .hero .container {
+  text-align: right;
+}
+
+[dir="rtl"] .service-card li {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+[dir="rtl"] .service-card li::before {
+  left: auto;
+  right: 0;
+}
+
+.nav-lang a {
+  white-space: nowrap;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
 .hero-subtitle:last-of-type {
   margin-bottom: 40px;
 }

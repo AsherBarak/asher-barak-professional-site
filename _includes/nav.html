@@ -1,11 +1,19 @@
 <nav class="nav">
   <div class="container">
     <a href="#" class="nav-logo">Asher Barak</a>
-    {% if page.layout == 'personal' %}
+    {% if page.lang == 'he' %}
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#work">איך אוכל לעזור</a></li>
+      <li><a href="#speaking">הרצאות</a></li>
+      <li><a href="#contact">צרו קשר</a></li>
+      <li class="nav-lang"><a href="{{ '/' | relative_url }}" title="English" aria-label="English">🇬🇧</a></li>
+    </ul>
+    {% elsif page.layout == 'personal' %}
     <ul class="nav-links" id="navLinks">
       <li><a href="#work">How I Can Help</a></li>
       <li><a href="#speaking">Speaking</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li class="nav-lang"><a href="{{ '/he/' | relative_url }}" title="עברית" aria-label="עברית">🇮🇱</a></li>
     </ul>
     {% else %}
     <ul class="nav-links" id="navLinks">
